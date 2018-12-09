@@ -8,15 +8,6 @@ output reg [63:0] dataout
 
 reg [63:0] MEMO[0:255];  
 
-integer i;
-
-initial begin
-  dataout <= 0;
-  for (i = 0; i < 256; i = i + 1) begin
-    MEMO[i] <= i;
-  end
-end
-
 always @(posedge clk)
 begin
 	if (w == 1'b1) 
@@ -25,9 +16,7 @@ begin
   	end
 
 end
-always@(*)
-begin
-	if(r == 1'b1)
-		dataout <= MEMO[adr];
-end
+
+assign dataout = ()? MEMO[adr]:z;
+
 endmodule 
