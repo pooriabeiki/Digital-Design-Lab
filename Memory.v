@@ -17,6 +17,6 @@ begin
 
 end
 
-assign dataout = ()? MEMO[adr]:z;
+assign dataout = (r == 1'b1)? MEMO[adr]:{(64){1'bz}};
 
 endmodule 
