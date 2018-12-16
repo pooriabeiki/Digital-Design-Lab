@@ -9,7 +9,9 @@ begin
 	pc_reset=1;
 	#100 pc_reset =0;
 end
+
 wire clk;
+
 pc pc0(clk,pc_reset,0,newpc,oldpc);
 os os0(clk);
 adder adder0(oldpc,64'b100,newpc);
