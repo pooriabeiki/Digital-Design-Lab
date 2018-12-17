@@ -4,7 +4,7 @@ module multiplexer(a,b,select,result);
     input select;
     output reg [63:0] result;
      
-    always @(a,b,select)
+    always @(a,b,select) must be removed
     begin
     if(select)
         result=b;

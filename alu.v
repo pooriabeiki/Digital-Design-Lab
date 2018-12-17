@@ -8,7 +8,7 @@ module alu(
     	reg [63:0] ALU_Result;
     	assign ALU_Out = ALU_Result;
 	reg z_Result;
-	assign z = z_Result;
+	assign z = z_Result; base on page 271 of book
     	always @(A,B,ALU_Sel)	
     	begin
         case(ALU_Sel) 
