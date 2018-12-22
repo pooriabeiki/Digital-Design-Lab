@@ -1,40 +1,30 @@
 module ControlUnit(
 
-input [10 : 0] opCode,
+  input [10 : 0] OpCode,
   output Reg2Loc,
   output Branch,
   output MemRead,
-  output RegtoReg,
+  output MemtoReg,
   output [1:0]Aluop,
   output MemWrite,
   output AluSrc,
   output RegWrite,
   output UnconditionalBranch
 );
-reg [9:0] ControlOut;
-  
-  wire [3:0] opcodeID = 
-  {opCode[10], opCode[6], opCode[4], opCode[1]};
+reg [8:0] outcome;
 
-  assign 
-  {Reg2Loc, ALUSrc, MemtoReg,
-   RegWrite, MemRead, MemWrite,
-   Branch, Branch, ALUOp, UncondBranch}
-   = ControlOut;
+  assign  
+     {Reg2Loc ,Branch ,MemRead ,MemtoReg ,Aluop ,Memwrite ,AluSrc ,RegWrite ,UnconditionalBranch} = outcome;
    
-   always @( Instruction )
-    casex(opcodeID)
-      // B
-      4'b00xx: ControlOut = 10'bx0x000xxx1;
-      // CBZ
-      4'b10xx: ControlOut = 10'b10x0001010;
-      // LDUR
-      4'b1101: ControlOut = 10'bx111100000;
-      // STUR
-      4'b1100: ControlOut = 10'b11x0010000;
-      // R-Type
-      4'b1110: ControlOut = 10'b0001000100;
-      default: ControlOut = 10'bz;
-    endcase
+   always @( OpCode )
+    begin
+     casex(opCode)
+            11'b1xx0101x000: value = 9'b000100010;
+            11'b11111000010: value = 9'bx11110000;
+            11'b11111000000: value = 9'b11x001000;
+            11'b10110100xxx: value = 9'b10x000101;
+        endcase
+
+    end
     
   endmodule
