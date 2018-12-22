@@ -1,22 +1,27 @@
 module AluControl  (
       input [31:0] instruction,
       input [1:0] AluOp,
-      output reg [3:0] opt
+      output reg [3:0] opCode
     );
-    
-    assign op = {ALUop, instruction[30], instruction[29], instruction[24]};
-    
-    always @(opID) begin
-      opt = 4'bz;
+     always @ (AluOp, instruction)
+      begin
+
+        casex(AluOp)
+        
+            2'b00: operation_code = 4'b0010;
+            2'bx1: operation_code = 4'b0111;
+            2'b1x:  begin
+
+                casex(instruction)
+
+                    11'b10001011000: operation_code = 0010;
+                    11'b11001011000: operation_code = 0110;
+                    11'b10001010000: operation_code = 0000;
+                    11'b10101010000: operation_code = 0001;
+                
+                endcase
+
+            end
+   
  
-      casex(opID)
-        5'b00xxx: opt = 4'b0010;
-        5'bx1xxx: opt = 4'b0111;
-        5'b1x001: opt = 4'b0010;
-        5'b1x101: opt = 4'b0110;
-        5'b1x000: opt = 4'b0000;
-        5'b1x010: opt = 4'b0001;
-      endcase
-    end
-  
 endmodul
