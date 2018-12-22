@@ -1,6 +1,6 @@
-module ALUcontrol  (
+module AluControl  (
       input [31:0] instruction,
-      input [1:0] ALUop,
+      input [1:0] AluOp,
       output reg [3:0] opt
     );
     
