@@ -1,0 +1,30 @@
+module ControlUnit(
+
+  input [10 : 0] OpCode,
+  output Reg2Loc,
+  output Branch,
+  output MemRead,
+  output MemtoReg,
+  output [1:0]Aluop,
+  output MemWrite,
+  output AluSrc,
+  output RegWrite,
+  output UnconditionalBranch
+);
+reg [8:0] outcome;
+
+  assign  
+     {Reg2Loc ,Branch ,MemRead ,MemtoReg ,Aluop ,Memwrite ,AluSrc ,RegWrite ,UnconditionalBranch} = outcome;
+   
+   always @( OpCode )
+    begin
+     casex(opCode)
+            11'b1xx0101x000: value = 9'b000100010;
+            11'b11111000010: value = 9'bx11110000;
+            11'b11111000000: value = 9'b11x001000;
+            11'b10110100xxx: value = 9'b10x000101;
+        endcase
+
+    end
+    
+  endmodule

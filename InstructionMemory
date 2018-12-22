@@ -1,0 +1,13 @@
+module InstructionMemory ( 
+  input [63 : 0] adr,
+  output [31 : 0] Instruction
+  );
+  
+  reg [7 : 0] Memory [0 : size-1];
+  
+  assign Instruction[7 : 0] = Memory[ReadAddress]; 
+  assign Instruction[15 : 8] = Memory[ReadAddress + 1];
+  assign Instruction[23 : 16] = Memory[ReadAddress + 2];
+  assign Instruction[31 : 24] = Memory[ReadAddress + 3];
+
+endmodule     
