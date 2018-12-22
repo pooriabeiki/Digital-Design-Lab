@@ -11,8 +11,10 @@ output[63:0] dataout2;
 
 reg [31:0] Bank [31:0];
 
-
-assign Bank[register3] = (Regwrite == 1'b1)? datain : Bank[register3];
+always @ (posedge clk) 
+begin
+	Bank[register3] = (regwrite == 1'b1)? datain : Bank[register3];
+end
 
 assign dataout1 = Bank[register1];
 assign dataout2 = Bank[register2];
