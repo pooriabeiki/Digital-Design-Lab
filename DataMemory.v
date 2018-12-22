@@ -1,4 +1,4 @@
-module memory (
+module Datamemory (
 input wire [63:0] adr,          // Memory Address
 input wire [63:0] datain,    // Memory Address Contents
 input wire w, r,
