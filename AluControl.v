@@ -1,4 +1,4 @@
-module ALUControl (ALUOp, ALUOp, instruction, code);
+module ALUControl (ALUOp, instruction, code);
 
     input ALUOp;
     input [31:0] instruction;
