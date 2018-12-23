@@ -8,8 +8,7 @@ module ControlUnit(
   output [1:0]Aluop,
   output MemWrite,
   output AluSrc,
-  output RegWrite,
-  output UnconditionalBranch
+  output RegWrite
 );
 reg [8:0] outcome;
 assign  {Reg2Loc ,AluSrc ,MemtoReg ,RegWrite ,MemRead ,Memwrite ,Branch } = outcome[8:2];
