@@ -3,7 +3,7 @@ input wire [63:0] adr,          // Memory Address
 input wire [63:0] datain,    // Memory Address Contents
 input wire w, r,
 input wire clk,                  // All synchronous elements, including memories, should have a clock signal
-output reg [63:0] dataout      
+output [63:0] dataout      
 );
 
 reg [63:0] MEMO[0:255];  

@@ -11,7 +11,7 @@ begin
 	begin
 		newpc<=0;
 	end
-	esle if(w)
+	else if(w)
 	begin
 		newpc <= oldpc;
 	end 

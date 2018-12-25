@@ -8,11 +8,11 @@ module alu(
     	reg [63:0] ALU_Result;
     	assign ALU_Out = ALU_Result;
 	reg z_Result;
-	assign z = z_Result; base on page 271 of book
+	assign z = z_Result; 
     	always @(A,B,ALU_Sel)	
     	begin
         case(ALU_Sel) 
-			4'b0000: // And
+		4'b0000: // And
         		ALU_Result = A & B ;
         	4'b0001: // Or
         		ALU_Result = A | B ;

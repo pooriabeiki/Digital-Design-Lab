@@ -1,5 +1,5 @@
 module oc(output reg clk);
-always@(*)
+always
 begin 
 	#100 clk = 1;
 	#100 clk = 0;

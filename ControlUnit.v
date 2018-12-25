@@ -16,9 +16,9 @@ assign Aluop = outcome[1:0];
 always @( OpCode )
 casex(OpCode)
 	11'b1xx0101x000: outcome = 9'b000100010;
-        11'b11111000010: outcome = 9'bx11110000;
-        11'b11111000000: outcome = 9'b11x001000;
-        11'b10110100xxx: outcome = 9'b10x000101;
+        11'b11111000010: outcome = 9'b011110000;
+        11'b11111000000: outcome = 9'b110001000;
+        11'b10110100xxx: outcome = 9'b101000101;
 endcase
     
 endmodule
