@@ -6,16 +6,22 @@ wire [63:0]newpc;
 wire clk ;
 
 wire [31 : 0] instruction;
+
+wire reg_to_loc;
+wire branch;
+wire mem_read;
+wire mem_to_reg;
+wire [1:0]Alu_Op;
+wire mem_write;
+wire alu_src;
+wire reg_write;
+
 wire [63:0] datain;
 wire [63:0] dataout;
 wire zero_alu;
-wire reg_to_loc;
-wire alu_src;
-wire mem_to_reg;
-wire reg_write;
-wire mem_read;
-wire mem_write, branch;
-wire [1:0]Alu_Op;
+
+
+
     wire [5  : 0] output_register_bank_multiplexer, alu_opcode;
     
     wire [63 : 0] output_pc_adder, output_data_memory, output_alu, reg_data_1, reg_data_2, output_alu_multiplexer, input_data_register, output_sign_extend, output_shift_unit, output_shift_unit_adder;

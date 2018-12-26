@@ -11,7 +11,7 @@ module ControlUnit(
   output RegWrite
 );
 reg [8:0] outcome;
-assign  {Reg2Loc ,AluSrc ,MemtoReg ,RegWrite ,MemRead ,Memwrite ,Branch } = outcome[8:2];
+assign  {Reg2Loc ,AluSrc ,MemtoReg ,RegWrite ,MemRead ,MemWrite ,Branch } = outcome[8:2];
 assign Aluop = outcome[1:0];
 always @( OpCode )
 casex(OpCode)
@@ -22,3 +22,4 @@ casex(OpCode)
 endcase
     
 endmodule
+
