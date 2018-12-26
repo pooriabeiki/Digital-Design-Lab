@@ -3,10 +3,9 @@ module arm_tb;
 reg pc_reset;
 wire [63:0]oldpc;
 wire [63:0]newpc;
-wire clk;
+wire clk ;
 
 wire [31 : 0] instruction;
-
 wire [63:0] datain;
 wire [63:0] dataout;
 wire zero_alu;
@@ -22,17 +21,17 @@ wire [1:0]Alu_Op;
     wire [63 : 0] output_pc_adder, output_data_memory, output_alu, reg_data_1, reg_data_2, output_alu_multiplexer, input_data_register, output_sign_extend, output_shift_unit, output_shift_unit_adder;
 
 
-
 initial 
 begin
+	
 	pc_reset=1;
+	
 	#100 pc_reset =0;
 end
 
 
-
-pc pc0(clk,pc_reset,0,newpc,oldpc);
 oc os0(clk);
+pc pc0(clk,pc_reset,1,newpc,oldpc);
 adder adder0(oldpc,64'b100,newpc);
 //memory memory0(oldpc,datain,1'b0,1'b1,clk,dataout);
 InstructionMemory instruction_memory (old_pc,instruction);
