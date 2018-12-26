@@ -5,16 +5,16 @@ input w;
 input [63:0] oldpc;
 output reg [63:0] newpc;
 
-always@(posedge clk)
+always @(clk)
 begin
 	if(rst)
 	begin
 		newpc<=0;
 	end
-	else if(w)
-	begin
-		newpc <= oldpc;
-	end 
 		
+end
+always @(posedge clk)
+begin
+	newpc <= oldpc;
 end
 endmodule
