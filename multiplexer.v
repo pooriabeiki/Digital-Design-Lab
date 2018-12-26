@@ -1,14 +1,9 @@
 module multiplexer(a,b,select,result);
-    input [63:0] a;
-    input [63:0] b;
+	parameter size = 64;
+    input [size -1:0] a;
+    input [size -1:0] b;
     input select;
-    output reg [63:0] result;
-     
-    always @(a,b,select) must be removed
-    begin
-    if(select)
-        result=b;
-    else
-        result=a;
-    end    
+    output[size -1:0] result;
+	
+     assign result = (select)? b : a;
 endmodule 
