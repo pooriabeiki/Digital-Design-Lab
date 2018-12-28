@@ -1,7 +1,7 @@
 module ALUControl (ALUOp, instruction, code);
 
-    input ALUOp;
-    input [31:0] instruction;
+    input [1:0] ALUOp;
+    input [10:0] instruction;
     output reg [3:0] code;
 
     always @ (ALUOp, instruction) begin

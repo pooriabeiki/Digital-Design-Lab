@@ -6,7 +6,14 @@ input wire clk,                  // All synchronous elements, including memories
 output [63:0] dataout      
 );
 
-reg [63:0] MEMO[0:255];  
+reg [63:0] MEMO[0:255];
+
+integer i;
+initial
+begin
+	for( i = 0; i < 32; i = i + 1) 
+		MEMO[i] = 1;
+end  
 
 always @(posedge clk)
 begin

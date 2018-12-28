@@ -11,7 +11,13 @@ output[63:0] dataout2;
 
 reg [31:0] Bank [31:0];
 
-always @ (posedge clk) 
+integer  i;
+initial 
+begin
+	for( i = 0; i < 32; i = i + 1) 
+		Bank[i] = i;
+end
+always @ (posedge clk ) 
 begin
 	Bank[register3] = (regwrite == 1'b1)? datain : Bank[register3];
 end
