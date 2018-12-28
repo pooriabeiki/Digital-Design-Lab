@@ -9,7 +9,7 @@ input regwrite;
 output[63:0] dataout1;
 output[63:0] dataout2;
 
-reg [31:0] Bank [31:0];
+reg [63:0] Bank [31:0];
 
 integer  i;
 initial 

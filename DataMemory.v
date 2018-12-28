@@ -11,7 +11,7 @@ reg [63:0] MEMO[0:255];
 integer i;
 initial
 begin
-	for( i = 0; i < 32; i = i + 1) 
+	for( i = 0; i < 255; i = i + 1) 
 		MEMO[i] = 1;
 end  
 

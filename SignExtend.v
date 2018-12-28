@@ -4,7 +4,6 @@ output[63:0] extended;
 
 reg[63:0] extended;
 
-//base on cb-type (b-type , ..) immediate part 
 always@(extend)
 begin
     if (extend[31:26] == 6'b000101) //b-type

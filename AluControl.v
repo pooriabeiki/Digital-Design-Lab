@@ -13,14 +13,15 @@ module ALUControl (ALUOp, instruction, code);
             2'b1x: 
                 casex(instruction)
 
-                    11'b10001011000: code = 0010;
-                    11'b11001011000: code = 0110;
-                    11'b10001010000: code = 0000;
-                    11'b10101010000: code = 0001;
+                    11'b10001011000: code = 4'b0010;
+                    11'b11001011000: code = 4'b0110;
+                    11'b10001010000: code = 4'b0000;
+                    11'b10101010000: code = 4'b0001;
                 
                 endcase
-
+		default: code = 4'bz;
         endcase
+	
 
     end
 
