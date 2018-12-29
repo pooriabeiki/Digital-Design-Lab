@@ -37,7 +37,7 @@ end
 
 
 oc os0(clk);
-pc pc0(clk,pc_reset,1'b1,newpc,oldpc);
+pc pc0(clk,pc_reset,newpc,oldpc);
 adder adder0(oldpc,64'b100,output_pc_adder);
 InstructionMemory instruction_memory (oldpc,instruction);
 ControlUnit control_unit (instruction[31 : 21],reg_to_loc,branch,mem_read,mem_to_reg,Alu_Op,mem_write,alu_src,reg_write);

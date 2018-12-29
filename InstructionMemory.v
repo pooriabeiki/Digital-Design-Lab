@@ -21,6 +21,7 @@ reg [7 : 0] Memory [0 : size-1];
 		Memory[9] = 8'h00;
 		Memory[10] = 8'h04;
 		Memory[11] = 8'h8b;
+		
 
 		Memory[12] = 8'ha6;
 		Memory[13] = 8'h10;

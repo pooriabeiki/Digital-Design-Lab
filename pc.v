@@ -1,20 +1,15 @@
-module pc(clk, rst, w, oldpc,newpc);
+module pc(clk, rst, oldpc,newpc);
+parameter size = 64;
 input clk;
 input rst;
-input w;
-input [63:0] oldpc;
-output reg [63:0] newpc;
+input [size-1:0] oldpc;
+output reg [size-1:0] newpc;
 
-always @(clk)
-begin
-	if(rst)
-	begin
-		newpc<=0;
-	end
-		
-end
 always @(posedge clk)
 begin
+if(rst)
+	newpc<=0;
+else
 	newpc <= oldpc;
 end
 endmodule
