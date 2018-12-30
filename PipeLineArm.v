@@ -6,29 +6,19 @@ reg pc_reset;
 wire [63:0]newpc;
 wire clk ;
 
-wire [31 : 0] instruction;
-
 wire reg_to_loc;
-wire branch;
-wire mem_read;
-wire mem_to_reg;
-wire [1:0]Alu_Op;
-wire mem_write;
-wire alu_src;
-wire reg_write;
 
 wire [4  : 0] output_register_bank_multiplexer;
 
-wire zero_alu;
 wire [3  : 0] alu_opcode;
-wire [63 : 0] output_pc_adder, output_data_memory, output_alu, reg_data_1, reg_data_2, output_alu_multiplexer, input_data_register, output_sign_extend, output_shift_unit, output_shift_unit_adder;
+wire [63 : 0] output_pc_adder, output_alu_multiplexer, input_data_register, output_shift_unit,output_shift_unit_adder;
 
 wire [63:0] Fpc , Spc;
 wire [31:0] Fins, Sins;
 
 wire [63:0] Tpc , Sread1 , Sread2,Tread1,Tread2,Ssign,Tsign;
-wire [10:0] Sins11 , Tins11;
-wire [4:0] Sins5 , Tins5;
+wire [10:0] Tins11;
+wire [4:0]  Tins5;
 wire Salu_src , Talu_src , Smem_to_reg , Tmem_to_reg , Sreg_write , Treg_write , Smem_read , Tmem_read;
 wire Smem_write, Tmem_write, Sbranch,Tbranch;
 wire [1:0] Salu_op,Talu_op;
